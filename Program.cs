@@ -82,6 +82,7 @@ Console.WriteLine($"DateOnly Only from DateTime: {dateOnlyFromDateTime}");
 Console.WriteLine("What Is your DOB (dd MMM yyyy):");
 string dobDateOnly = Console.ReadLine();
 
+
 //var theDateOnly = DateOnly.ParseExact(dobDateOnly,"dd MMM yyyy", CultureInfo.InvariantCulture); // CultureInfo.InvariantCulture 
 //Console.WriteLine($"The Date Only: {theDateOnly}");
 
