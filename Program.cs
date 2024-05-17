@@ -43,3 +43,23 @@ Console.WriteLine($"One Hour from now is: {now.AddHours(1)}");
 Console.WriteLine($"One Day from now is: {now.AddDays(1)}");
 Console.WriteLine($"One day ago from now is {now.AddDays(-1)}");
 
+Console.WriteLine("************ - DateTime Offset Manipulation - *************");
+
+// UTC
+var utcNow = DateTime.UtcNow;
+Console.WriteLine($"Now Date Time: {now}");
+Console.WriteLine($"UTC Now Date Time: {utcNow}");
+
+var tz = TimeZoneInfo.Local.GetUtcOffset(utcNow);
+Console.WriteLine($"User Time Zone: {tz}");
+
+var dto = new DateTimeOffset(now, tz);
+Console.WriteLine($"User Time Zone with UTC Offset: {dto}");
+Console.WriteLine($"UTC Time of Action: {dto.UtcDateTime}");
+
+var indiaTz = TimeZoneInfo.FindSystemTimeZoneById("India Standard Time");
+var indiaDateTime = TimeZoneInfo.ConvertTimeFromUtc(dto.UtcDateTime, indiaTz);
+Console.WriteLine($"Action was completed in India at: {indiaDateTime}");
+
+Console.WriteLine("************ - Date Only and Time only manipulation - *************");
+
