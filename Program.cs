@@ -1,4 +1,6 @@
 ﻿// Date and Time
+using System.Globalization;
+
 Console.WriteLine("************ - DateTime Manipulation - *************");
 
 // Empty DateTime object
@@ -62,4 +64,38 @@ var indiaDateTime = TimeZoneInfo.ConvertTimeFromUtc(dto.UtcDateTime, indiaTz);
 Console.WriteLine($"Action was completed in India at: {indiaDateTime}");
 
 Console.WriteLine("************ - Date Only and Time only manipulation - *************");
+var dateOnly = new DateOnly(1982, 08, 07);
+var nextDay = dateOnly.AddDays(1);
+var previousDay = dateOnly.AddDays(-1);
+var decadeLater = dateOnly.AddYears(10);
+var lastMonth = dateOnly.AddMonths(-1);
 
+Console.WriteLine($"The Date: {dateOnly}");
+Console.WriteLine($"The next day: {nextDay}");
+Console.WriteLine($"The Previous day: {previousDay}");
+Console.WriteLine($"The Dacade later: {decadeLater}");
+Console.WriteLine($"The Last Month: {lastMonth}");
+
+var dateOnlyFromDateTime = DateOnly.FromDateTime(now);
+Console.WriteLine($"DateOnly Only from DateTime: {dateOnlyFromDateTime}");
+
+Console.WriteLine("What Is your DOB (dd MMM yyyy):");
+string dobDateOnly = Console.ReadLine();
+
+//var theDateOnly = DateOnly.ParseExact(dobDateOnly,"dd MMM yyyy", CultureInfo.InvariantCulture); // CultureInfo.InvariantCulture 
+//Console.WriteLine($"The Date Only: {theDateOnly}");
+
+var timeNow = TimeOnly.FromDateTime(now);
+Console.WriteLine($"It is now: {timeNow}");
+
+Console.WriteLine($"It is now: {timeNow:hh:mm tt}");
+
+var date1 = new DateTime(1985, 11, 23);
+var date2 = new DateTime(1965, 1, 20);
+
+
+Console.WriteLine($"Is '{nameof(date1)}' equal? {date1 == date2}");
+Console.WriteLine($"Is '{nameof(date1)}' equal? {date1.Equals(date2)}");
+
+Console.WriteLine($"Is {date2} after? {date2> date1}");
+Console.WriteLine($"Is {date2} before? {date2 < date1}");
